@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>Welcome to Consuming RESTful!</h1>
+	<table th:if="${studentList != null}">
+		<tr>
+			<!-- <th>ID</th> -->
+			<th>Name</th>
+			<th>&nbsp;</th>
+			<th>&nbsp;</th>
+		</tr>
+		<tr th:each="s : ${studentList}">
+			<!-- <td th:text="${s.id}">111222333</td> -->
+			<td th:text="${s.name}">Frank</td>
+			<td><a th:href="@{/getStudent/} + ${s.id}">Edit</a></td>
+			<td><a th:href="@{/deleteStudent/} + ${s.id}">Delete</a></td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+	<br>
+	<a th:href="@{/blankStudentForm}">Insert new Student!</a>
+
+</body>
+</html>

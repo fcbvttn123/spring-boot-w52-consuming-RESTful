@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Insert or Edit a Student</h1>
+	
+	<div th:if="${student.id} != null">
+		<form method="post" th:action="@{/editStudent}" th:object="${student}">
+			<input type="hidden" th:field="*{id}"> 
+			Name: <input type="text" th:field="*{name}"><br> 
+			Grade: <input type="number" th:field="*{grade}"><br> 
+			Attended: <input type="checkbox" th:field="*{attended}"><br>
+			Participated: <input type="checkbox" th:field="*{participated}"><br>
+			<input type="submit" value="Edit Student!">
+		</form>
+	</div>
+	
+	<div th:if="${student.id} == null">
+		<form method="post" th:action="@{/insertStudent}" th:object="${student}">
+			<!-- <input type="hidden" th:field="*{id}"> -->
+			Name: <input type="text" th:field="*{name}"><br> 
+			Grade: <input type="number" th:field="*{grade}"><br> 
+			Attended: <input type="checkbox" th:field="*{attended}"><br>
+			Participated: <input type="checkbox" th:field="*{participated}"><br>
+			<input type="submit" value="Insert Student!">
+		</form>
+	</div>
+</body>
+</html>
